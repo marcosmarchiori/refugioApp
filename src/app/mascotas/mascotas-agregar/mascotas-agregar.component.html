@@ -1,0 +1,62 @@
+<h3>Agregar Mascota para adopcion</h3>
+ 
+<br>
+  
+ <form clas="clrForm clr-form" [formGroup]="mascotas" (ngSubmit)="onSubmit()">
+    
+    <div class="clr-input-container clr-row" [ngClass]="{ 'has-danger': !mascotas.get('nombre').valid }">
+       
+        <label for="mascotas" class="clr-control-label clr-col-8 clr-col-md-4">Nombre</label>
+         <div class="clr-control-container clr-col-12 clr-col-md-8">
+           
+            <input class="clr-input" 
+                   clrInput type="text" 
+                   formControlName="nombre">
+             <div  *ngIf="!mascotas.get('nombre').errors?.required &&
+                    !mascotas.get('nombre').errors?.minLenght">
+                    
+                </div>    
+                <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>         
+                <clr-control-error>debe indicar un nombre</clr-control-error>
+        </div>
+       
+         <label for="mascotas" class="clr-control-label clr-col-8 clr-col-md-4">Tipo</label>
+            <div class="clr-control-container clr-col-12 clr-col-md-8">
+                
+                <input class="clr-input" 
+                       clrInput type="text" 
+                       formControlName="tipo">
+                <clr-control-error>debe indicar un tipo</clr-control-error>
+            </div>
+        
+        <label for="mascotas" class="clr-control-label clr-col-12 clr-col-md-4">Edad</label>
+            <div class="clr-control-container clr-col-12 clr-col-md-8">
+             
+                <input class="clr-input" 
+                       clrInput type="number" 
+                       formControlName="edad">
+             
+              <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+              <clr-control-error>debe indicar edad</clr-control-error>
+            </div>
+        
+        <label for="mascotas" class="clr-control-label clr-col-12 clr-col-md-4">Descripcion</label>
+            <div class="clr-control-container clr-col-12 clr-col-md-8">
+              
+                <input class="clr-input" 
+                       clrInput type="text" 
+                       formControlName="descripcion">  
+                
+                <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                <clr-control-error>debe indicar una descripcion</clr-control-error>
+            </div>
+        
+          <br>
+      
+          <button type="submit" class="btn btn-success" [disabled]="mascotas.invalid" >Add</button>
+          <button type="button" (click)="resetAll()" class="btn btn-primary">Reset</button>
+          <button type="button" (click)="goBack()" class="btn btn-outline">Cancel</button>
+     
+        </div>    
+    
+</form>
