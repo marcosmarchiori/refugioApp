@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MascotasService } from '../shared/mascotas.service';
 import { Mascota } from '../shared/mascota';
 
+
 @Component({
   selector: 'app-mascotas-listar',
   templateUrl: './mascotas-listar.component.html',
@@ -17,8 +18,6 @@ export class MascotasListarComponent implements OnInit {
       this.mascotas = data;
   })
  }
-
-
-
+ 
  
 }

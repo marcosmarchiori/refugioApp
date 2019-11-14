@@ -17,6 +17,12 @@ export class MascotasService {
       return this.httpClient.post<Mascota>(`${this.baseUrl}`,mascota);
     }
 
-    
+    public getMascota(id:number){
+      return this.httpClient.get<Mascota>(`${this.baseUrl}/${id}`);
+    }
+
+    public updateMascota(mascota: Mascota){
+      return this.httpClient.put<Mascota>(`${this.baseUrl}`,mascota);
+    }
 }
 
