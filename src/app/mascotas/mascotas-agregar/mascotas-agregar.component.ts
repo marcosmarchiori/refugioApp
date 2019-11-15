@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MascotasService } from '../shared/mascotas.service';
 import { Router } from '@angular/router';
 import { ClrOutsideClickModule } from '@clr/angular/utils/outside-click/outside-click.module';
@@ -12,29 +12,38 @@ import { ClrOutsideClickModule } from '@clr/angular/utils/outside-click/outside-
 })
 export class MascotasAgregarComponent implements OnInit {
   
-  mascotas: FormGroup;
+  mascotasForm = this.fb.group({
+        nombre:['', (Validators.required,             
+                         Validators.minLength(3))],
+        tipo: ['', (Validators.required)],
+        edad: ['', (Validators.required,
+                                     Validators.pattern('[0-9]+'))],
+        descripcion: ['', (Validators.required)],
+  });
+
+  constructor(private fb: FormBuilder, private mascotasService: MascotasService, private router: Router ){ }
   ngOnInit() { }
-  
-
-  constructor(private mascotasService: MascotasService, private router: Router) {  this.mascotas = new FormGroup({
-    nombre: new FormControl ('', [Validators.required,
-                                Validators.minLength(3)]),
-    tipo: new FormControl ('', Validators.required),
-    edad: new FormControl('', [Validators.required,
-                              Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-    descripcion: new FormControl ('', Validators.required)
-});}
-
  
+
+//   constructor(private mascotasService: MascotasService, private router: Router) {  this.mascotas = new FormGroup({
+//     nombre: new FormControl ('', [Validators.required,
+//                                 Validators.minLength(3)]),
+//     tipo: new FormControl ('', Validators.required),
+//     edad: new FormControl('', [Validators.required,
+//                               Validators.pattern(/^-?(0|[1-120]\d*)?$/)]),
+//     descripcion: new FormControl ('', Validators.required)
+// });
+
+
 onSubmit() {
   // TODO: Use EventEmitter with form value
   
-  this.mascotasService.addMascota(this.mascotas.value).subscribe(data => {
+  this.mascotasService.addMascota(this.mascotasForm.value).subscribe(data => {
     this.goBack();
 })}
 
 resetAll(){
- this.mascotas.reset();
+ this.mascotasForm.reset();
 }
 
 goBack(){

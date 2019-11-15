@@ -17,8 +17,11 @@
       <td>{{mascota.edad}}</td>
       <td>{{mascota.descripcion}}</td>
       <td>
-        <button type="button" [routerLink]="['/mascotas-editar', mascota.id]">
+        <button type="button" class="btn btn-icon" [routerLink]="['/mascotas-editar', mascota.id]">
           <clr-icon shape="pencil"></clr-icon>
+        </button>
+        <button type="button" class="btn btn-icon btn-danger" (click)="delete(mascota.id)">
+            <clr-icon shape="trash"></clr-icon>
         </button>
       </td>
     </tr>

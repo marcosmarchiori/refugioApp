@@ -19,5 +19,11 @@ export class MascotasListarComponent implements OnInit {
   })
  }
  
- 
+ delete(id: number){
+   this.mascotasService.deleteMascota(id).subscribe((data)=>{
+     console.log(data)
+    this.mascotas.splice(this.mascotas.findIndex(mascota=> mascota.id==id),1)}
+    )}
+
+
 }

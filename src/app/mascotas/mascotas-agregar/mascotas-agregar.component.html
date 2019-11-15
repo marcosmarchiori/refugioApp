@@ -1,5 +1,5 @@
 <h3>Agregar Mascota para adopcion</h3>
- 
+<!--  
 <br>
   
  <form clas="clrForm clr-form" [formGroup]="mascotas" (ngSubmit)="onSubmit()">
@@ -16,7 +16,7 @@
                     !mascotas.get('nombre').errors?.minLenght">
                     
                 </div>    
-                <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>         
+                <clr-icon class="clr-validate-icon" shape="firewall"></clr-icon>         
                 <clr-control-error>debe indicar un nombre</clr-control-error>
         </div>
        
@@ -59,4 +59,44 @@
      
         </div>    
     
+</form> -->
+
+<form [formGroup]="mascotasForm" (ngSubmit)="onSubmit()" class="clr-form-horizontal">
+  <br/>  
+     <clr-input-container>
+       <label>Nombre</label>
+          <input clrInput type="text" formControlName="nombre" name="nombre" required />
+             <clr-control-error>We need your first name for legal compliance</clr-control-error>
+             <clr-control-error *clrIfError="'required'">debe indicar un nombre</clr-control-error>
+             <clr-control-error *clrIfError="'minLenght'">debe ingresar 3 letras</clr-control-error>
+             <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+     </clr-input-container>
+        
+     <clr-input-container>
+       <label>Tipo</label>
+          <input clrInput type="text" formControlName="tipo" name="tipo" required />
+             <clr-control-error *clrIfError="'required'">debe indicar un tipo</clr-control-error>
+             <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+     </clr-input-container>
+       
+     <clr-input-container>
+       <label>Edad</label>
+            <input clrInput type="number" formControlName="edad" name="edad" required />
+               <clr-control-error *clrIfError="'required'">debe indicar edad</clr-control-error>
+               <clr-control-error *clrIfError="'pattern'">debe indicar un numero</clr-control-error>
+               <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+      </clr-input-container>
+ 
+      <clr-input-container>
+        <label>Descripcion</label>
+            <input clrInput type="text" formControlName="descripcion" name="descripcion" required />
+               <clr-control-error *clrIfError="'required'">debe indicar una descripcion</clr-control-error>
+               <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+      </clr-input-container>
+
+      <br/>   
+        <button type="submit" [disabled]="!mascotasForm.valid" class="btn btn-success">Submit</button>
+        <button type="button" (click)="resetAll()" class="btn btn-primary">Reset</button>
+        <button type="button" (click)="goBack()" class="btn btn-outline">Cancel</button> 
 </form>
+           
