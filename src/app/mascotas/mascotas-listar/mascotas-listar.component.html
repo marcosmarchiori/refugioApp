@@ -1,18 +1,18 @@
 <h2>Mascotas para adoptar</h2>
-<button type="button" class="btn btn-icon btn-primary" routerLink="/mascotas-agregar">Agregar mascota</button>
-<table class="table">
+<button type="button" class="btn btn-icon btn-success" routerLink="/mascotas-agregar">Agregar mascota</button>
+<table class="table table-noborder">
   <thead>
     <tr>
-      <th>nombre</th>
-      <th>tipo</th>
-      <th>edad</th>
-      <th>descripcion</th>
-      <th>acciones</th>
+      <th class="left">NOMBRE</th>
+      <th>TIPO</th>
+      <th>EDAD</th>
+      <th>DESCRIPCION</th>
+      <th>ACCIONES</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let mascota of mascotas">
-      <td>{{mascota.nombre}}</td>
+      <td class="left">{{mascota.nombre}}</td>
       <td>{{mascota.tipo}}</td>
       <td>{{mascota.edad}}</td>
       <td>{{mascota.descripcion}}</td>

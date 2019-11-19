@@ -12,6 +12,7 @@ import { MascotasListarComponent } from './mascotas/mascotas-listar/mascotas-lis
 import { MascotasAgregarComponent } from './mascotas/mascotas-agregar/mascotas-agregar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MascotasEditarComponent } from './mascotas/mascotas-editar/mascotas-editar.component';
+import { MascotasAdoptarComponent } from './mascotas/mascotas-adoptar/mascotas-adoptar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MascotasEditarComponent } from './mascotas/mascotas-editar/mascotas-edi
     InicioComponent,
     MascotasListarComponent,
     MascotasAgregarComponent,
-    MascotasEditarComponent
+    MascotasEditarComponent,
+    MascotasAdoptarComponent
   ],
   imports: [
     BrowserModule,

@@ -24,17 +24,6 @@ export class MascotasAgregarComponent implements OnInit {
   constructor(private fb: FormBuilder, private mascotasService: MascotasService, private router: Router ){ }
   ngOnInit() { }
  
-
-//   constructor(private mascotasService: MascotasService, private router: Router) {  this.mascotas = new FormGroup({
-//     nombre: new FormControl ('', [Validators.required,
-//                                 Validators.minLength(3)]),
-//     tipo: new FormControl ('', Validators.required),
-//     edad: new FormControl('', [Validators.required,
-//                               Validators.pattern(/^-?(0|[1-120]\d*)?$/)]),
-//     descripcion: new FormControl ('', Validators.required)
-// });
-
-
 onSubmit() {
   // TODO: Use EventEmitter with form value
   

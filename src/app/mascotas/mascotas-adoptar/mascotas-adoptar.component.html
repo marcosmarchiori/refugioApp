@@ -1,0 +1,43 @@
+<h4>Mascotas para adoptar</h4>
+<br>
+ <clr-accordion *ngFor="let tipo of tipos">
+    <clr-accordion-panel>
+           <clr-accordion-title>{{tipo}}</clr-accordion-title>
+           <clr-accordion-content *clrIfExpanded>
+                <div class="clr-row" *ngFor="let mascota of mascotasTipo(tipo)">
+                        <div  class="clr-col-sm-5 clr-col-sm-5 clr-col-10">
+                            <div class="card">
+                                <div class="card-header">
+                                    {{mascota.nombre}}
+                                </div>
+                                <div class="card-block">
+                                    <div class="card-title">
+                                      <img src="assets/img/perro1.jpg">  
+                                    </div>
+                                    <div class="card-text">
+                                       Tipo:
+                                        {{mascota.tipo}}
+                                       ;
+                                        Edad:
+                                        {{mascota.edad}}
+                                       ;
+                                        Descripcion:
+                                        {{mascota.descripcion}}
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button [routerLink]="['/mascotas-listar']" class="btn btn-success">mascotas</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+           </clr-accordion-content>
+        </clr-accordion-panel>
+ </clr-accordion>   
+                    
+
+
+
+
+
